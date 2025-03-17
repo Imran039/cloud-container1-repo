@@ -6,7 +6,10 @@ steps:
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
-      - --filename=cloud-container1.yaml
+      - --filename=cloud-container1-deployment.yaml
       - --image=gcr.io/k8s-ci-cd-project/cloud-container1
       - --location=us-central1
       - --cluster=k8s-cluster
+
+options:
+  logging: CLOUD_LOGGING_ONLY
