@@ -1,0 +1,13 @@
+{
+  "name": "cloud-container1",
+  "version": "1.0.0",
+  "description": "Container 1 stores files and communicates with Container 2",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.4.0"
+  }
+}

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-container1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-container1
+  template:
+    metadata:
+      labels:
+        app: cloud-container1
+    spec:
+      containers:
+        - name: cloud-container1
+          image: gcr.io/k8s-ci-cd-project/cloud-container1:latest
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /persistent_data_dir
+              name: shared-storage
+      volumes:
+        - name: shared-storage
+          persistentVolumeClaim:
+            claimName: cloud-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-container1-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: cloud-container1
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
