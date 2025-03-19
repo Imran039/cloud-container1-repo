@@ -2,6 +2,6 @@ FROM node:18
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
-COPY . .
+COPY CLOUD-CONTAINER1/ /app/
 CMD ["node", "server.js"]
 EXPOSE 8080
