@@ -5,7 +5,7 @@ const axios = require("axios");
 
 const app = express();
 app.use(express.json());
-//Test
+
 const STORAGE_DIR = "/persistent_data_dir/"; // Persistent Volume Directory
 const CONTAINER2_URL = "http://cloud-container2-service:9090/calculate"; // Kubernetes Service for Container 2
 
