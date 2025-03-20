@@ -9,7 +9,7 @@ app.use(express.json());
 const STORAGE_DIR = "/persistent_data_dir/"; // Persistent Volume Directory
 const CONTAINER2_URL = "http://cloud-container2-service:9090/calculate"; // Kubernetes Service for Container 2
 
-// POST API to store a file
+
 app.post("/store-file", (req, res) => {
   const { file, data } = req.body;
 
